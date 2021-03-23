@@ -1,18 +1,23 @@
-# verifyemail Python3.6.5
+# 邮箱验证
 
-Python在线验证邮箱真实性，支持批量验证，支持全部域名邮箱，支持全部域名邮箱，支持全部域名邮箱，支持全部域名邮箱
+对***Tzeross***师傅的代码进行部分修改；师傅原项目地址https://github.com/Tzeross/verifyemail
 
 
-final_list = verify_istrue(['190758586@qq.com', '19075858666@qq.com'])  
-print(final_list)  #{'190758586@qq.com': True, '19075858666@qq.com': False}  
-    
 
-#2018-09-21 18:42:35,017 - verifyemail.py [line:23] - INFO: 正在查找邮箱服务器  
-#2018-09-21 18:42:35,030 - verifyemail.py [line:26] - INFO: 查找结果为：['mx3.qq.com', 'mx2.qq.com', 'mx1.qq.com']  
-#2018-09-21 18:42:35,030 - verifyemail.py [line:52] - INFO: 正在连接服务器...：mx2.qq.com  
-#2018-09-21 18:42:35,160 - verifyemail.py [line:56] - DEBUG: (250, b'newmx33.qq.com')  
-#2018-09-21 18:42:35,218 - verifyemail.py [line:59] - DEBUG: (250, b'Ok')  
-#2018-09-21 18:42:35,317 - verifyemail.py [line:62] - DEBUG: (250, b'Ok')  
-#2018-09-21 18:42:35,357 - verifyemail.py [line:56] - DEBUG: (250, b'newmx33.qq.com')  
-#2018-09-21 18:42:35,418 - verifyemail.py [line:59] - DEBUG: (250, b'Ok')  
-#2018-09-21 18:42:35,460 - verifyemail.py [line:62] - DEBUG: (550, b'Mailbox not found. http://service.mail.qq.com/cgi-#bin/help?subtype=1&&id=20022&&no=1000728')  
+## 修改内容
+
+添加了单个和批量邮箱验证功能
+
+添加了从命令行界面email或email.txt的输入
+
+## 使用方法
+
+python3 EmailVerifiy.py --help
+
+单个邮箱验证
+
+python3 EmailVerifiy.py -e eamil
+
+批量验证
+
+python3 EmailVerifiy.py -f email.txt

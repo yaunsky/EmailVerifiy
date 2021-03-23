@@ -6,6 +6,7 @@ import random
 import smtplib
 import logging
 import time
+import click
 
 import dns.resolver
 
@@ -71,10 +72,23 @@ def verify_istrue(email):
 
     return final_res
 
+@click.command()
+@click.option("-e", "--email", help='Target email; Example: test@qq.com')
+@click.option("-f", "--file", help="Target File; Example:target.txt。")
+def main(email, file):
+    if email != None and file == None:
+        final_list = verify_istrue(email)
+        print(final_list)
+    elif email == None and file != None:
+        result=[]
+        f = open('email.txt','r')
+        for email in f.readlines():
+            result.append(email.strip())
+
+            final_list = verify_istrue(result)
+
+            print(final_list)
+
 
 if __name__ == '__main__':
-    final_list = verify_istrue(['tengzhaoyou@testin.cn',
-                                '190758586@qq.com',
-                                'qwer111111111111995@163.com'
-                                ])
-    print(final_list)
+    main()
